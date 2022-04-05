@@ -1,72 +1,62 @@
-# Chat code sample for Flutter for ConnectyCube platform
+# Chat ESP avec Flutter et Firebase
 
-This README introduces [ConnectyCube](https://connectycube.com) Chat code sample for Flutter
-
-The project contains the following features implemented:
-
-- User authorization
-- Users search
-- Chat dialogs creation
-- 1-1 messaging
-- Group messaging
-- ‘Is typing’ statuses
-- Group chat: edit a name, photo; list of participants, add/remove participants; leave a group
-- Push notification: subscribe/unsubscribe, show local notification, navigate to the app click on a local notification
-
-## Documentation
-
-ConnectyCube Flutter getting started - [https://developers.connectycube.com/flutter](https://developers.connectycube.com/flutter)
-
-ConnectyCube Chat API documentation - [https://developers.connectycube.com/flutter/messaging](https://developers.connectycube.com/flutter/messaging)
-
-## Screenshots
-
-<kbd><img alt="Flutter Chat sample, select dialogs" src="https://developers.connectycube.com/docs/_images/code_samples/flutter/dialogs_screen.png" height="440" />
-</kbd> <kbd><img alt="Flutter Chat code sample, chat" src="https://developers.connectycube.com/docs/_images/code_samples/flutter/chat_screen.png" height="440" /></kbd>
-</kbd> <kbd><img alt="Flutter Chat code sample, chat (Windows)" src="https://developers.connectycube.com/docs/_images/code_samples/flutter/chat_screen_windows.png" height="440" /></kbd>
-
-## Quickstart and develop
-
-Quickstart [Flutter](https://flutter.dev/docs/get-started) app.
-
-
-## Run
-
-Prepare environment for Flutter and clone the project.
-
-### Run on Android:
-- Right mouse button click on `main.dart`;
-- Chose 'Run 'main.dart''.
-
-The app will automatically run on your Android device.
-
-### Run on iOS:
-- Start Xcode;
-- Select `Runner.xcworkspace` to run Xcode project;
-- Press the' Build' button to start project building.
-
-The app will automatically run on a selected iOS device or simulator.
-
-### Run on macOS
-- Run command from the  Terminal `flutter run -d macos`;
-### Run on Windows
-- Run command from the  Terminal `flutter run -d windows`;
-### Run on Web
-- Run command from the  Terminal `flutter run -d chrome`;
-
-### Configure Push notifications:
-1. Create your own app in the ConnectyCube admin panel (if not created yet);
-2. Create a project in the Firebase developer console (if not created yet);
-3. Add the Server API key from the Firebase developer console to the ConnectyCube admin panel for the Android platform ([short guide](https://developers.connectycube.com/flutter/push-notifications?id=android));
-4. Add Apple certificate for the iOS platform ([short guide, how to generate and set it to the admin panel](https://developers.connectycube.com/ios/push-notifications?id=create-apns-certificate));
-5. Generate config file `firebase_options.dart` via [FlutterFire CLI](https://firebase.flutter.dev/docs/cli/)(the simple util provided for avoiding manual configuration for each platforms) and put it by place `lib/firebase_options.dart`;
-6. Build and run the app as usual;
-
-> **Note:** For working with push notifications on the macOS platform you should generate a separate certificate similar to p.4 but with other app bundle id.
-
-> **Note:** For displaying notifications on the Web platform from the background you should feel the file `web/firebase-messaging-sw.js` with data from your Firebase developer console.
+L’objectif de ce projet est la mise en place d’une application de messagerie instantanée. L’application
+devra permettre aux utilisateurs connectés de communiquer sur un réseau local et/ou sur Internet. Elle
+devra ainsi avoir les fonctionnalités suivantes :
+- Inscription : Seuls les utilisateurs inscrits devront pouvoir accéder pleinement aux
+fonctionnalités de l’application. L’inscription se fait directement sur l’application en
+renseignant les données de l’utilisateur (prénom, nom, login, numéro de téléphone, photo de
+profil, etc.). Le numéro de téléphone fourni fera office d’identifiant pour les utilisateurs et devra
+correspondre à l’un des numéros disponibles au niveau de l’appareil.
+- Gestion des contacts : L’application devra également permettre aux utilisateurs de gérer leur
+liste d’amis (ajout / suppression / recherche d’amis). Les résultats de recherche d’amis potentiels
+devront distinguer les contacts qui sont déjà amis de ceux qui ne le sont pas. L’ajout d’un ami
+ne pourra se faire que si ce dernier est déjà inscrit dans l’application. De même, le clic sur un
+résultat de recherche devra afficher le profil de l’utilisateur en question.
+- Gestion de profils : Tout utilisateur devra avoir son profil que lui-même ou les autres pourront
+consulter. Ledit profil permettra à l’utilisateur de donner ou de mettre à jour les données le
+concernant.
+- Indicateur de connexion : les utilisateurs peuvent à tout moment connaitre la liste des contacts
+en ligne.
+- Chat entre utilisateurs : Les utilisateurs ont la possibilité de chatter directement, de manière
+synchrone ou pas. Ils devront pouvoir s’envoyer des messages textuels et/ou vocaux.
+- Chat de groupe : Les utilisateurs peuvent créer des groupes et discuter avec plusieurs personnes
+en même temps.
+- Partage de ressources : En dehors du chat textuel, les images, les vidéos, les contacts et les
+notes vocales peuvent être partagés dans les discussions.
+- Historique de discussion : L’historique des échanges sur la plateforme devra être stocké par la
+plateforme de sorte à ce qu’une déconnexion ne rime pas avec la perte des données de
+communication.
+- Gestion de statut : L’utilisateur pourra partager des statuts avec ses amis et pourra, pour
+chacun, décider de sa confidentialité (accessible uniquement à ses amis ou à tout le monde).
+- Notifications : Des notifications seront envoyées à l’utilisateur à chaque fois que le besoin se
+fera sentir (comme à la réception d’un nouveau message par exemple).
 
 
-## Can't build yourself?
 
-Got troubles with building Flutter code samples? Just create an issue at [Issues page](https://github.com/ConnectyCube/connectycube-flutter-samples/issues) - we will create the sample for you. For FREE!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
